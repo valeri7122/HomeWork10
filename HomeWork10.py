@@ -65,12 +65,14 @@ def add(func_arg):
 
 @input_error
 def change(func_arg):
-    Record(func_arg[0]).change_phone(func_arg[1], func_arg[2])
+    c = a.data[func_arg[0]]
+    c.change_phone(func_arg[1], func_arg[2])
     return f'The phone: {func_arg[1]} has been changes to {func_arg[2]}'
 
 @input_error
 def remove(func_arg):
-    Record(func_arg[0]).remove_phone(func_arg[1])
+    r = a.data[func_arg[0]]
+    r.remove_phone(func_arg[1])
     return f'The phone: {func_arg[1]} has been removed'
 
 @input_error
