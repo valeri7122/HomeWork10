@@ -16,14 +16,16 @@ class Record(Field):
     def __init__(self, name):
         self.name = Name(name)
         self.phones = []
+        
     def add_phone(self, phone):
         self.phones.append(Phone(phone))
-
+        
     def remove_phone(self, remove_phone):
         for phone in self.phones:
             if phone.value == remove_phone:
                 self.phones.remove(phone)
                 return f'The phone {remove_phone} has been removed'
+            
     def change_phone(self, old_phone, new_phone):
         for phone in self.phones:
             if phone.value == old_phone:
