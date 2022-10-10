@@ -115,13 +115,10 @@ def main():
         
         input_string = input().lower()
 
-
         if input_string.split()[0] in commands and len(input_string.split()) > 1:
-
             print(commands[input_string.split()[0]](input_string.split()[1:]))
             
         elif input_string in commands:
-            
             print(commands[input_string](input_string))
             
             if commands[input_string](input_string) == "Good bye!":
