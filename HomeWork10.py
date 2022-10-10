@@ -42,7 +42,7 @@ class AddressBook(UserDict):
 
  
 
-a =  AddressBook()   
+address =  AddressBook()   
 
 def input_error(func):
     def wrapper(*args, **kwargs):
@@ -59,30 +59,31 @@ def input_error(func):
 
 @input_error
 def add(func_arg):
-    Record(func_arg[0]).add_phone(func_arg[1])
-    a.add_record(Record(func_arg[0]))
+    record = Record(func_arg[0])
+    record.add_phone(func_arg[1])
+    address.add_record(record)
     return 'A new contact has been added'
 
 @input_error
 def change(func_arg):
-    c = a.data[func_arg[0]]
-    c.change_phone(func_arg[1], func_arg[2])
+    change = address.data[func_arg[0]]
+    change.change_phone(func_arg[1], func_arg[2])
     return f'The phone: {func_arg[1]} has been changes to {func_arg[2]}'
 
 @input_error
 def remove(func_arg):
-    r = a.data[func_arg[0]]
-    r.remove_phone(func_arg[1])
+    remove = address.data[func_arg[0]]
+    remove.remove_phone(func_arg[1])
     return f'The phone: {func_arg[1]} has been removed'
 
 @input_error
 def phone(func_arg):
-    a.show_record(func_arg[0])
+    address.show_record(func_arg[0])
 
 
 @input_error
 def show_all(_=None):
-    return a.data
+    return address.data
 
 @input_error
 def hello(_=None):
