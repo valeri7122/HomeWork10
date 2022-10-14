@@ -34,15 +34,13 @@ class Record(Field):
                 return f'The phone {old_phone} has been changed to {new_phone}'
      
 class AddressBook(UserDict):
+    list = []
     def add_record(self, record: Record):
         self.data[record.name.value] = record
     def show_record(self, name):
-        list = []
         for el in self.data[name].phones:
-            list.append(el)
-        return f'The contact: {Name} has phones: {list}'
+            self.list.append(el.value)
 
- 
 
 address =  AddressBook()   
 
@@ -81,7 +79,7 @@ def remove(func_arg):
 @input_error
 def phone(func_arg):
     address.show_record(func_arg[0])
-
+    return f'The contact "{func_arg[0]}" has phones: {address.list}'
 
 @input_error
 def show_all(_=None):
