@@ -34,10 +34,10 @@ class Record(Field):
                 return f'The phone {old_phone} has been changed to {new_phone}'
      
 class AddressBook(UserDict):
-    list = []
     def add_record(self, record: Record):
         self.data[record.name.value] = record
     def show_record(self, name):
+        self.list = []
         for el in self.data[name].phones:
             self.list.append(el.value)
 
